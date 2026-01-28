@@ -73,11 +73,36 @@ Analyst Questions
 - Was the action performed outside business hours?
 - Does this align with approved change activity?
 
-## 🚩High-Risk Indicators
+## Step 2: Password Change and Reset
+
+Password-related events are critical indicators of account takeover,
+persistence, or attacker remediation actions.
+
+- 4723 – User attempted to change their own password
+- 4724 – Password reset attempt (performed by another account)
+
+## Events Reviewed
+- Who initiated the password change or reset?
+- Was the target account compromised earlier?
+- Was the password reset performed by an admin?
+- Does the user confirm this action?
+
+## Analyst Questions
+- Who initiated the password change or reset?
+- Was the target account compromised earlier?
+- Was the password reset performed by an admin?
+- Does the user confirm this action?
+
+### 🚩High-Risk Indicators
 
 Password reset (4724) without a helpdesk ticket
 Password reset followed by privileged group addition
 Password reset followed by RDP or VPN login
+
+## Step 3: Account Enablement and Modification
+
+Attackers may enable dormant accounts or modify account attributes
+to maintain access.
 
 ## Events Reviewed
 - 4722 – User account enabled
@@ -105,7 +130,7 @@ privilege escalation.
 - 4732 / 4728 – User added to group
 - 4733 / 4729 – User removed from group
 
-## Correlation Logic
+## Step 5: Correlation Logic
 
 Suspicious patterns include:
 - 4720 → 4724 → 4732 (new account + password reset + admin rights)
@@ -114,7 +139,7 @@ Suspicious patterns include:
 - Password reset shortly after brute-force attempts (4625)
 Strong indicators of account compromise or persistence
 
-## Risk Assessment
+## Step 6: Risk Assessment
 
 Assess:
 - Privilege level of target account
