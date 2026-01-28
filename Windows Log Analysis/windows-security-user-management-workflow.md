@@ -78,14 +78,9 @@ Analyst Questions
 Password-related events are critical indicators of account takeover,
 persistence, or attacker remediation actions.
 
+## Events Reviewed
 - 4723 – User attempted to change their own password
 - 4724 – Password reset attempt (performed by another account)
-
-## Events Reviewed
-- Who initiated the password change or reset?
-- Was the target account compromised earlier?
-- Was the password reset performed by an admin?
-- Does the user confirm this action?
 
 ## Analyst Questions
 - Who initiated the password change or reset?
