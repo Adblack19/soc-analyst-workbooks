@@ -37,7 +37,7 @@ Threat Focus:
 - IntegrityLevel
 - CurrentDirectory
 - Hashes (MD5, SHA256)
-
+📌 SOC Rule:
 Command line + parent process = context
 
 ## SOC Investigation Workflow
@@ -49,36 +49,41 @@ Step 4: Assess execution context
 Step 5: Correlate with authentication activity
 Step 6: Determine malicious or benign
 Step 7: Respond and escalate if required
+5. Step 1 – Identify Suspicious Process Execution
 ## Step 1: Process Execution Analysis
 
 Process creation events provide visibility into what is executed
 on a system and how it was launched.
-
+High-Risk Process Categories
 - PowerShell (powershell.exe)
 - Command Prompt (cmd.exe)
 - Windows Script Host (wscript.exe, cscript.exe)
 - Rundll32
 - Mshta
 - Certutil
+🚩 Red Flag:
+Execution of admin tools by standard users
 
 ## Step 2: Command Line Analysis
 
 Attackers often hide malicious intent in command-line arguments.
-
+Suspicious Indicators
 - Encoded commands
 - Download from external URLs
 - Execution from user-writable directories
 - Obfuscated or overly long command lines
-### 🚩 Critical Indicator
-- PowerShell with -EncodedCommand
+🚩 Critical Indicator
 
+- PowerShell with -EncodedCommand
 ## Step 3: Parent-Child Analysis
 
 Understanding how a process was spawned provides context
 on execution method.
+Suspicious Relationships
 - Office application → PowerShell
 - Browser → Command shell
 - Explorer → Script engine
+➡ Common in phishing-based attacks
 
 ## Step 4: Execution Context
 
@@ -87,7 +92,6 @@ Evaluate:
 - Integrity level
 - Current directory
 - Execution timing
-
 🚩 Red Flags
 
 - High integrity execution by non-admin user
@@ -100,6 +104,7 @@ Suspicious sequences include:
 - RDP logon (4624) → Sysmon Event ID 1
 - Password reset → process execution
 - Office macro → PowerShell execution
+➡ Indicates post-compromise activity
 
 ## Decision Matrix
 
@@ -123,7 +128,6 @@ Malicious Indicators:
 - Review child processes
 - Collect memory or disk artifacts
 
-
 ## Escalation Criteria
 
 Escalate if:
@@ -131,7 +135,6 @@ Escalate if:
 - Privileged context involved
 - Multiple endpoints affected
 - Correlation with other attack stages
-
 ## Investigation Checklist
 
 ☐ Identify process and command line  
@@ -148,4 +151,5 @@ Escalate if:
 - Command-line visibility is critical for detection
 - Parent-child relationships expose execution methods
 - Correlation confirms attacker intent
-
+Suggested Commit Message
+Add Sysmon process monitoring SOC workflow
