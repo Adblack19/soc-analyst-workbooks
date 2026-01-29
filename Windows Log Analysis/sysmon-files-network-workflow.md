@@ -78,6 +78,7 @@ High-Risk Locations
 - C:\Temp\
 
 🚩 Red Flag
+
 Executable created in a user-writable directory
 
 ## Event ID 13 – Registry Value Set
@@ -92,6 +93,7 @@ High-Risk Registry Locations
 🚩 Critical Indicator
 
 New executable added to Run or RunOnce registry key
+
 ➡ Indicates persistence established
 
 ## Event ID 10 – Process Access
@@ -105,14 +107,15 @@ High-Risk Targets
 - explorer.exe
 
 🚩 Critical Indicator
+
 Untrusted process accessing lsass.exe
 
 ## Event ID 22 – DNS Query
 Used to detect:
 - C2 beaconing
 - DGA-based malware
-
 - Suspicious domain lookups
+
 🚩 Red Flag
 
 Random-looking domains queried by newly created executables
@@ -121,6 +124,7 @@ Random-looking domains queried by newly created executables
 Monitors outbound and inbound connections initiated by processes.
 
 🚩 High Confidence Indicator
+
 File creation followed by outbound connection to external IP
 
 ## Correlation Logic
@@ -137,6 +141,7 @@ Common malicious chains:
 
 - Event 13 → Event 3
   (Persistence → beaconing)
+  
 ➡ Strong evidence of active compromise
 
 ## Decision Matrix
