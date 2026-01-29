@@ -37,6 +37,7 @@ Threat Focus:
 - IntegrityLevel
 - CurrentDirectory
 - Hashes (MD5, SHA256)
+
 📌 SOC Rule:
 Command line + parent process = context
 
@@ -49,7 +50,7 @@ Step 4: Assess execution context
 Step 5: Correlate with authentication activity
 Step 6: Determine malicious or benign
 Step 7: Respond and escalate if required
-5. Step 1 – Identify Suspicious Process Execution
+
 ## Step 1: Process Execution Analysis
 
 Process creation events provide visibility into what is executed
@@ -61,6 +62,7 @@ High-Risk Process Categories
 - Rundll32
 - Mshta
 - Certutil
+
 🚩 Red Flag:
 Execution of admin tools by standard users
 
@@ -72,9 +74,10 @@ Suspicious Indicators
 - Download from external URLs
 - Execution from user-writable directories
 - Obfuscated or overly long command lines
-🚩 Critical Indicator
 
+🚩 Critical Indicator
 - PowerShell with -EncodedCommand
+
 ## Step 3: Parent-Child Analysis
 
 Understanding how a process was spawned provides context
@@ -92,8 +95,8 @@ Evaluate:
 - Integrity level
 - Current directory
 - Execution timing
-🚩 Red Flags
 
+🚩 Red Flags
 - High integrity execution by non-admin user
 - Execution during off-hours
 - Execution shortly after RDP logon
