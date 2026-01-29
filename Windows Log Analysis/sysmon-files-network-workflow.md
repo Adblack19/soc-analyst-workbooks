@@ -90,6 +90,7 @@ High-Risk Registry Locations
 - Services registry paths
 
 🚩 Critical Indicator
+
 New executable added to Run or RunOnce registry key
 ➡ Indicates persistence established
 
