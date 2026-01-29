@@ -151,5 +151,3 @@ Escalate if:
 - Command-line visibility is critical for detection
 - Parent-child relationships expose execution methods
 - Correlation confirms attacker intent
-Suggested Commit Message
-Add Sysmon process monitoring SOC workflow
